@@ -25,8 +25,8 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
     onFiltersChange({ ...filters, availability: value as 'all' | 'available' | 'unavailable' });
   };
 
-  const handleCharacterLengthChange = (value: string) => {
-    onFiltersChange({ ...filters, characterLength: value as 'all' | '1-4' | '5-7' | '8+' });
+  const handleCharacterLengthChange = (value: number[]) => {
+    onFiltersChange({ ...filters, characterLength: [value[0], value[1]] });
   };
 
   const handlePriceRangeChange = (value: number[]) => {
@@ -67,17 +67,19 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
         </Select>
 
         {/* Character Length Filter */}
-        <Select value={filters.characterLength} onValueChange={handleCharacterLengthChange}>
-          <SelectTrigger>
-            <SelectValue placeholder="Character length" />
-          </SelectTrigger>
-          <SelectContent className="bg-white">
-            <SelectItem value="all">All Lengths</SelectItem>
-            <SelectItem value="1-4">1-4 Characters</SelectItem>
-            <SelectItem value="5-7">5-7 Characters</SelectItem>
-            <SelectItem value="8+">8+ Characters</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-primary">
+            Character Length: {filters.characterLength[0]} - {filters.characterLength[1]}
+          </label>
+          <Slider
+            value={filters.characterLength}
+            onValueChange={handleCharacterLengthChange}
+            max={8}
+            min={1}
+            step={1}
+            className="w-full"
+          />
+        </div>
 
         {/* Availability Filter */}
         <Select value={filters.availability} onValueChange={handleAvailabilityChange}>

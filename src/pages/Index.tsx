@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +13,7 @@ const Index = () => {
     priceRange: [0, 5000],
     availability: 'all',
     searchTerm: '',
-    characterLength: 'all'
+    characterLength: [1, 8]
   });
 
   const filteredPlates = useMemo(() => {
@@ -32,17 +31,9 @@ const Index = () => {
       }
 
       // Character length filter
-      if (filters.characterLength !== 'all') {
-        const plateLength = plate.plateNumber.length;
-        if (filters.characterLength === '1-4' && plateLength > 4) {
-          return false;
-        }
-        if (filters.characterLength === '5-7' && (plateLength < 5 || plateLength > 7)) {
-          return false;
-        }
-        if (filters.characterLength === '8+' && plateLength < 8) {
-          return false;
-        }
+      const plateLength = plate.plateNumber.length;
+      if (plateLength < filters.characterLength[0] || plateLength > filters.characterLength[1]) {
+        return false;
       }
 
       // Price range filter
