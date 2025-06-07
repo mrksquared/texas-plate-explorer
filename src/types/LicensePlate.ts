@@ -15,4 +15,5 @@ export interface SearchFilters {
   priceRange: [number, number];
   availability: 'all' | 'available' | 'unavailable';
   searchTerm: string;
+  characterLength: 'all' | '1-4' | '5-7' | '8+';
 }

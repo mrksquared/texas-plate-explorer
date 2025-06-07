@@ -13,7 +13,8 @@ const Index = () => {
     category: 'All Categories',
     priceRange: [0, 5000],
     availability: 'all',
-    searchTerm: ''
+    searchTerm: '',
+    characterLength: 'all'
   });
 
   const filteredPlates = useMemo(() => {
@@ -28,6 +29,20 @@ const Index = () => {
       // Category filter
       if (filters.category !== 'All Categories' && plate.category !== filters.category) {
         return false;
+      }
+
+      // Character length filter
+      if (filters.characterLength !== 'all') {
+        const plateLength = plate.plateNumber.length;
+        if (filters.characterLength === '1-4' && plateLength > 4) {
+          return false;
+        }
+        if (filters.characterLength === '5-7' && (plateLength < 5 || plateLength > 7)) {
+          return false;
+        }
+        if (filters.characterLength === '8+' && plateLength < 8) {
+          return false;
+        }
       }
 
       // Price range filter

@@ -25,6 +25,10 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
     onFiltersChange({ ...filters, availability: value as 'all' | 'available' | 'unavailable' });
   };
 
+  const handleCharacterLengthChange = (value: string) => {
+    onFiltersChange({ ...filters, characterLength: value as 'all' | '1-4' | '5-7' | '8+' });
+  };
+
   const handlePriceRangeChange = (value: number[]) => {
     onFiltersChange({ ...filters, priceRange: [value[0], value[1]] });
   };
@@ -36,7 +40,7 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
         <h2 className="text-xl font-bold text-primary">Search & Filter</h2>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Search Input */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -59,6 +63,19 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
                 {category}
               </SelectItem>
             ))}
+          </SelectContent>
+        </Select>
+
+        {/* Character Length Filter */}
+        <Select value={filters.characterLength} onValueChange={handleCharacterLengthChange}>
+          <SelectTrigger>
+            <SelectValue placeholder="Character length" />
+          </SelectTrigger>
+          <SelectContent className="bg-white">
+            <SelectItem value="all">All Lengths</SelectItem>
+            <SelectItem value="1-4">1-4 Characters</SelectItem>
+            <SelectItem value="5-7">5-7 Characters</SelectItem>
+            <SelectItem value="8+">8+ Characters</SelectItem>
           </SelectContent>
         </Select>
 
