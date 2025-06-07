@@ -1,3 +1,4 @@
+
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,7 @@ const Index = () => {
     priceRange: [0, 5000],
     availability: 'all',
     searchTerm: '',
-    characterLength: [1, 8]
+    characterLength: [8, 1]
   });
 
   const filteredPlates = useMemo(() => {
