@@ -74,8 +74,8 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
           <Slider
             value={filters.characterLength}
             onValueChange={handleCharacterLengthChange}
-            max={1}
-            min={8}
+            max={8}
+            min={1}
             step={1}
             className="w-full"
           />
