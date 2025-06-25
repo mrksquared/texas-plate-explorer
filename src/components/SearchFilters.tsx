@@ -1,8 +1,6 @@
 
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
 import { SearchFilters as SearchFiltersType } from "../types/LicensePlate";
 import { categories } from "../data/licensePlates";
 import { Search, Filter } from "lucide-react";
@@ -21,16 +19,8 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
     onFiltersChange({ ...filters, category: value });
   };
 
-  const handleAvailabilityChange = (value: string) => {
-    onFiltersChange({ ...filters, availability: value as 'all' | 'available' | 'unavailable' });
-  };
-
-  const handleCharacterLengthChange = (value: number[]) => {
-    onFiltersChange({ ...filters, characterLength: [value[0], value[1]] });
-  };
-
-  const handlePriceRangeChange = (value: number[]) => {
-    onFiltersChange({ ...filters, priceRange: [value[0], value[1]] });
+  const handleCharacterLengthChange = (value: string) => {
+    onFiltersChange({ ...filters, characterLength: value });
   };
 
   return (
@@ -40,7 +30,7 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
         <h2 className="text-xl font-inter font-semibold text-primary">Search & Filter</h2>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Search Input */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -67,46 +57,18 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
         </Select>
 
         {/* Character Length Filter */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-primary">
-            Character Length: {filters.characterLength[0]} - {filters.characterLength[1]}
-          </label>
-          <Slider
-            value={filters.characterLength}
-            onValueChange={handleCharacterLengthChange}
-            max={8}
-            min={1}
-            step={1}
-            className="w-full"
-          />
-        </div>
-
-        {/* Availability Filter */}
-        <Select value={filters.availability} onValueChange={handleAvailabilityChange}>
+        <Select value={filters.characterLength} onValueChange={handleCharacterLengthChange}>
           <SelectTrigger>
-            <SelectValue placeholder="Availability" />
+            <SelectValue placeholder="Character length" />
           </SelectTrigger>
           <SelectContent className="bg-white">
-            <SelectItem value="all">All Plates</SelectItem>
-            <SelectItem value="available">Available Only</SelectItem>
-            <SelectItem value="unavailable">Unavailable Only</SelectItem>
+            <SelectItem value="all">All Lengths</SelectItem>
+            <SelectItem value="1-3">1-3 characters</SelectItem>
+            <SelectItem value="4-5">4-5 characters</SelectItem>
+            <SelectItem value="6-7">6-7 characters</SelectItem>
+            <SelectItem value="8">8 characters</SelectItem>
           </SelectContent>
         </Select>
-
-        {/* Price Range */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-primary">
-            Price Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}
-          </label>
-          <Slider
-            value={filters.priceRange}
-            onValueChange={handlePriceRangeChange}
-            max={5000}
-            min={0}
-            step={100}
-            className="w-full"
-          />
-        </div>
       </div>
     </div>
   );

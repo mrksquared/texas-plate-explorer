@@ -1,3 +1,4 @@
+
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,10 +11,9 @@ import { Search } from "lucide-react";
 const Index = () => {
   const [filters, setFilters] = useState<SearchFiltersType>({
     category: 'All Categories',
-    priceRange: [0, 5000],
     availability: 'all',
     searchTerm: '',
-    characterLength: [1, 8]
+    characterLength: 'all'
   });
 
   const filteredPlates = useMemo(() => {
@@ -31,22 +31,22 @@ const Index = () => {
       }
 
       // Character length filter
-      const plateLength = plate.plateNumber.length;
-      if (plateLength < filters.characterLength[0] || plateLength > filters.characterLength[1]) {
-        return false;
-      }
-
-      // Price range filter
-      if (plate.price < filters.priceRange[0] || plate.price > filters.priceRange[1]) {
-        return false;
-      }
-
-      // Availability filter
-      if (filters.availability === 'available' && !plate.isAvailable) {
-        return false;
-      }
-      if (filters.availability === 'unavailable' && plate.isAvailable) {
-        return false;
+      if (filters.characterLength !== 'all') {
+        const plateLength = plate.plateNumber.length;
+        switch (filters.characterLength) {
+          case '1-3':
+            if (plateLength < 1 || plateLength > 3) return false;
+            break;
+          case '4-5':
+            if (plateLength < 4 || plateLength > 5) return false;
+            break;
+          case '6-7':
+            if (plateLength < 6 || plateLength > 7) return false;
+            break;
+          case '8':
+            if (plateLength !== 8) return false;
+            break;
+        }
       }
 
       return true;

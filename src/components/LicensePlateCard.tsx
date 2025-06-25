@@ -9,19 +9,13 @@ interface LicensePlateCardProps {
 }
 
 export function LicensePlateCard({ plate }: LicensePlateCardProps) {
+  const generateMyPlatesUrl = (plateNumber: string) => {
+    return `https://www.myplates.com/design/personalized/passenger/black-white-premium-embossed/${plateNumber.toLowerCase()}`;
+  };
+
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
       <CardHeader className="pb-4">
-        <div className="flex justify-between items-start mb-2">
-          <Badge 
-            variant={plate.isAvailable ? "default" : "destructive"}
-            className={plate.isAvailable ? "bg-mint text-primary" : ""}
-          >
-            {plate.isAvailable ? "Available" : "Unavailable"}
-          </Badge>
-          <span className="text-2xl font-bold text-primary">${plate.price.toLocaleString()}</span>
-        </div>
-        
         {/* License Plate Preview */}
         <div className="bg-gradient-to-r from-coral to-purple p-4 rounded-lg mb-4">
           <div className="bg-white rounded-md p-3 text-center">
@@ -45,13 +39,10 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
         </div>
         
         <Button 
-          className={`w-full ${plate.isAvailable 
-            ? 'bg-gradient-to-r from-coral to-purple hover:from-purple hover:to-coral' 
-            : 'bg-muted text-muted-foreground cursor-not-allowed'
-          }`}
-          disabled={!plate.isAvailable}
+          className="w-full bg-gradient-to-r from-coral to-purple hover:from-purple hover:to-coral"
+          onClick={() => window.open(generateMyPlatesUrl(plate.plateNumber), '_blank')}
         >
-          {plate.isAvailable ? "Learn More" : "Not Available"}
+          Buy Now
         </Button>
       </CardContent>
     </Card>
