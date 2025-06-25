@@ -34,27 +34,27 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+    <div className="bg-dark-blue rounded-2xl shadow-lg p-6 mb-8">
       <div className="flex items-center gap-2 mb-6">
-        <Filter className="w-5 h-5 text-primary" />
-        <h2 className="text-xl font-inter font-semibold text-primary">Search & Filter</h2>
+        <Filter className="w-5 h-5 text-white" />
+        <h2 className="text-xl font-inter font-semibold text-white">Search & Filter</h2>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Search Input */}
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <Input
             placeholder="Search for plates..."
             value={filters.searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="pl-10"
+            className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-300"
           />
         </div>
 
         {/* Category Filter */}
         <Select value={filters.category} onValueChange={handleCategoryChange}>
-          <SelectTrigger>
+          <SelectTrigger className="bg-white/10 border-white/20 text-white">
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent className="bg-white">
@@ -68,7 +68,7 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
 
         {/* Character Length Filter */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-primary">
+          <label className="text-sm font-medium text-white">
             Character Length: {filters.characterLength[0]} - {filters.characterLength[1]}
           </label>
           <Slider
@@ -77,13 +77,13 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
             max={8}
             min={1}
             step={1}
-            className="w-full"
+            className="w-full [&_[role=slider]]:bg-white [&_[role=slider]]:border-white"
           />
         </div>
 
         {/* Availability Filter */}
         <Select value={filters.availability} onValueChange={handleAvailabilityChange}>
-          <SelectTrigger>
+          <SelectTrigger className="bg-white/10 border-white/20 text-white">
             <SelectValue placeholder="Availability" />
           </SelectTrigger>
           <SelectContent className="bg-white">
@@ -95,7 +95,7 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
 
         {/* Price Range */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-primary">
+          <label className="text-sm font-medium text-white">
             Price Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}
           </label>
           <Slider
@@ -104,7 +104,7 @@ export function SearchFilters({ filters, onFiltersChange }: SearchFiltersProps) 
             max={5000}
             min={0}
             step={100}
-            className="w-full"
+            className="w-full [&_[role=slider]]:bg-white [&_[role=slider]]:border-white"
           />
         </div>
       </div>

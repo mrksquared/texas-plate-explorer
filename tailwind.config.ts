@@ -57,7 +57,8 @@ export default {
 				purple: 'hsl(var(--purple))',
 				mint: 'hsl(var(--mint))',
 				sky: 'hsl(var(--sky))',
-				cream: 'hsl(var(--cream))'
+				cream: 'hsl(var(--cream))',
+				'dark-blue': '#000A46'
 			},
 			fontFamily: {
 				'luckiest': ['Luckiest Guy', 'cursive'],

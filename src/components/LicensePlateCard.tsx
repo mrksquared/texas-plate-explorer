@@ -10,7 +10,7 @@ interface LicensePlateCardProps {
 
 export function LicensePlateCard({ plate }: LicensePlateCardProps) {
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
+    <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-dark-blue border-0 shadow-lg">
       <CardHeader className="pb-4">
         <div className="flex justify-between items-start mb-2">
           <Badge 
@@ -19,7 +19,7 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
           >
             {plate.isAvailable ? "Available" : "Unavailable"}
           </Badge>
-          <span className="text-2xl font-bold text-primary">${plate.price.toLocaleString()}</span>
+          <span className="text-2xl font-bold text-white">${plate.price.toLocaleString()}</span>
         </div>
         
         {/* License Plate Preview */}
@@ -33,12 +33,12 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
       </CardHeader>
       
       <CardContent className="pt-0">
-        <h3 className="font-semibold text-lg text-primary mb-2">{plate.plateNumber}</h3>
-        <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{plate.description}</p>
+        <h3 className="font-semibold text-lg text-white mb-2">{plate.plateNumber}</h3>
+        <p className="text-gray-300 text-sm mb-4 leading-relaxed">{plate.description}</p>
         
         <div className="flex flex-wrap gap-1 mb-4">
           {plate.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">
+            <Badge key={tag} variant="outline" className="text-xs border-white/30 text-gray-300">
               {tag}
             </Badge>
           ))}
@@ -47,7 +47,7 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
         <Button 
           className={`w-full ${plate.isAvailable 
             ? 'bg-gradient-to-r from-coral to-purple hover:from-purple hover:to-coral' 
-            : 'bg-muted text-muted-foreground cursor-not-allowed'
+            : 'bg-gray-600 text-gray-400 cursor-not-allowed'
           }`}
           disabled={!plate.isAvailable}
         >
