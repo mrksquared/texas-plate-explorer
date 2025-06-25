@@ -61,6 +61,7 @@ export default {
 			},
 			fontFamily: {
 				'luckiest': ['Luckiest Guy', 'cursive'],
+				'inter': ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

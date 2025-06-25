@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -102,7 +101,7 @@ const Index = () => {
         {/* Results Section */}
         <div className="container mx-auto px-4 pb-16">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-luckiest text-primary">
+            <h2 className="text-2xl font-inter font-semibold text-primary">
               {filteredPlates.length} License Plates Found
             </h2>
           </div>
