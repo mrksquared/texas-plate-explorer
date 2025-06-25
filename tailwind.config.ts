@@ -59,6 +59,9 @@ export default {
 				sky: 'hsl(var(--sky))',
 				cream: 'hsl(var(--cream))'
 			},
+			fontFamily: {
+				'luckiest': ['Luckiest Guy', 'cursive'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
