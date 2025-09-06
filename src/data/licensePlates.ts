@@ -7,8 +7,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'TOPLESS',
     category: 'Automotive',
     description: 'Perfect for convertible owners who love the open road',
-    price: 1250,
-    isAvailable: true,
     tags: ['convertible', 'fun', 'automotive']
   },
   {
@@ -16,8 +14,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'BBQ KING',
     category: 'Food & Dining',
     description: 'For the ultimate Texas barbecue enthusiast',
-    price: 950,
-    isAvailable: true,
     tags: ['bbq', 'food', 'texas', 'cooking']
   },
   {
@@ -25,8 +21,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'COWBOY1',
     category: 'Texas Pride',
     description: 'Classic Texas cowboy spirit',
-    price: 2100,
-    isAvailable: false,
     tags: ['cowboy', 'texas', 'western', 'classic']
   },
   {
@@ -34,8 +28,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'TECH CEO',
     category: 'Business',
     description: 'For the modern tech entrepreneur',
-    price: 3500,
-    isAvailable: true,
     tags: ['tech', 'business', 'ceo', 'modern']
   },
   {
@@ -43,8 +35,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'HOWDY Y\'ALL',
     category: 'Texas Pride',
     description: 'Spread that Texas hospitality wherever you go',
-    price: 1800,
-    isAvailable: true,
     tags: ['howdy', 'texas', 'friendly', 'greeting']
   },
   {
@@ -52,8 +42,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'OIL RICH',
     category: 'Business',
     description: 'For those who struck it big in Texas oil',
-    price: 4200,
-    isAvailable: false,
     tags: ['oil', 'wealth', 'texas', 'business']
   },
   {
@@ -61,8 +49,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'TACO TUE',
     category: 'Food & Dining',
     description: 'Every day can be Taco Tuesday',
-    price: 850,
-    isAvailable: true,
     tags: ['tacos', 'food', 'tuesday', 'mexican']
   },
   {
@@ -70,8 +56,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'LONE STR',
     category: 'Texas Pride',
     description: 'Representing the Lone Star State',
-    price: 2800,
-    isAvailable: true,
     tags: ['lone star', 'texas', 'pride', 'state']
   },
   {
@@ -79,8 +63,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'RODEO PRO',
     category: 'Sports',
     description: 'For professional rodeo competitors',
-    price: 1600,
-    isAvailable: true,
     tags: ['rodeo', 'sports', 'professional', 'western']
   },
   {
@@ -88,8 +70,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'HOT SAUCE',
     category: 'Food & Dining',
     description: 'For those who like it spicy',
-    price: 720,
-    isAvailable: true,
     tags: ['spicy', 'sauce', 'food', 'heat']
   },
   {
@@ -97,8 +77,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'BIG TEX',
     category: 'Texas Pride',
     description: 'Everything\'s bigger in Texas',
-    price: 3200,
-    isAvailable: false,
     tags: ['big', 'texas', 'size', 'pride']
   },
   {
@@ -106,8 +84,6 @@ export const licensePlates: LicensePlate[] = [
     plateNumber: 'RANCH LFE',
     category: 'Lifestyle',
     description: 'Living the ranch life',
-    price: 1400,
-    isAvailable: true,
     tags: ['ranch', 'lifestyle', 'country', 'rural']
   }
 ];
