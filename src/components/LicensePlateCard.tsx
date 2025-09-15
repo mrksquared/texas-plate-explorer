@@ -17,7 +17,7 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
     <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
       <CardHeader className="pb-4">
         {/* License Plate Preview */}
-        <div className="bg-navy p-4 rounded-lg mb-4">
+        <div className="bg-gradient-to-r from-coral to-purple p-4 rounded-lg mb-4">
           <div className="bg-white rounded-md p-3 text-center">
             <div className="text-xs text-muted-foreground mb-1">TEXAS</div>
             <div className="text-xl font-bold text-primary tracking-wider">{plate.plateNumber}</div>
@@ -39,7 +39,7 @@ export function LicensePlateCard({ plate }: LicensePlateCardProps) {
         </div>
         
         <Button 
-          className="w-full bg-navy hover:bg-navy/90 text-white"
+          className="w-full bg-gradient-to-r from-coral to-purple hover:from-purple hover:to-coral"
           onClick={() => window.open(generateMyPlatesUrl(plate.plateNumber), '_blank')}
         >
           Buy Now
